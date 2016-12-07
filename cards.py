@@ -45,4 +45,6 @@ headers = {
     'X-Mashape-Key': mashape_api_key,
 }
 response = requests.get(all_cards_url, headers=headers)
+
+# Data is a dict of lists. The keys are card set names (e.g., 'Mean Streets of Gadgetzan').
 data = response.json()
