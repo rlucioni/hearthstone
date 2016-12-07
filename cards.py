@@ -44,4 +44,5 @@ all_cards_url = urljoin(mashape_api_root, 'cards')
 headers = {
     'X-Mashape-Key': mashape_api_key,
 }
-all_card_data = requests.get(all_cards_url, headers=headers)
+response = requests.get(all_cards_url, headers=headers)
+data = response.json()
