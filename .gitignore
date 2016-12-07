@@ -90,3 +90,5 @@ ENV/
 
 # OS X
 .DS_Store
+
+settings.yml

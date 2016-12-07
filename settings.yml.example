@@ -1,0 +1,3 @@
+mashape_api:
+  root: https://omgvamp-hearthstone-v1.p.mashape.com
+  key: example_key
