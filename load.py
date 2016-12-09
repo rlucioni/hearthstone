@@ -45,7 +45,7 @@ class Resource:
         """Save JSON corresponding to the resource."""
         logger.info('Saving data for the [{}] resource.'.format(self.resource))
 
-        path = '/data/{}.json'.format(self.resource)
+        path = 'data/{}.json'.format(self.resource)
         with open(path, 'w') as f:
             data = getattr(self.api, self.resource).get()
             json.dump(data, f, indent=4, sort_keys=True)
