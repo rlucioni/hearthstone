@@ -37,20 +37,20 @@ logger = logging.getLogger(__name__)
 
 class Resource:
     """Utility class representing an API resource."""
-    def __init__(self, resource, api):
-        self.resource = resource
+    def __init__(self, name, api):
+        self.name = name
         self.api = api
 
     def save(self):
         """Save JSON corresponding to the resource."""
-        logger.info('Saving data for the [{}] resource.'.format(self.resource))
+        logger.info('Saving data for the [{}] resource.'.format(self.name))
 
-        path = 'data/{}.json'.format(self.resource)
+        path = 'data/{}.json'.format(self.name)
         with open(path, 'w') as f:
-            data = getattr(self.api, self.resource).get()
+            data = getattr(self.api, self.name).get()
             json.dump(data, f, indent=4, sort_keys=True)
 
-        logger.info('Saved [{resource}] data to [{path}].'.format(resource=self.resource, path=path))
+        logger.info('Saved [{resource}] data to [{path}].'.format(resource=self.name, path=path))
 
 
 if __name__ == '__main__':
@@ -65,7 +65,13 @@ if __name__ == '__main__':
     session.headers.update(headers)
     api = slumber.API(mashape_api_root, session=session)
 
-    resources = [Resource(resource, api) for resource in ('info', 'cards', 'cardbacks')]
+    resources = [Resource(resource, api) for resource in settings['resources']]
+
+    logger.info(
+        'Saving resources. Target resources are: {}.'.format(
+            ', '.join(resource.name for resource in resources)
+        )
+    )
 
     with concurrent.futures.ThreadPoolExecutor() as executor:
         for resource in resources:
