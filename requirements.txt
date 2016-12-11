@@ -1,3 +1,4 @@
+jupyter==1.0.0
 PyYAML==3.12
 requests==2.12.3
 slumber==0.7.1
