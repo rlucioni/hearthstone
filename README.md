@@ -4,4 +4,4 @@ Tools for studying Hearthstone cards. Data is provided by a [third-party API](ht
 
 Create a `settings.yml` file at the root of the repo and put your Mashape application key in it. See `settings.yml.example` for an example of what this file should look like.
 
-Pull data from the API and save it to the `data` directory by executing `./load.py` from the root of the repo.
+Pull data from the API and save it to the `data` directory by executing `make load` from the root of the repo.

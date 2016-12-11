@@ -75,7 +75,7 @@ if __name__ == '__main__':
         resources = [Resource(resource, api) for resource in settings['resources']]
 
         for resource in resources:
-            # TODO: Add flag to force refresh (for use after a patch is released).
+            # To force a refresh, delete the resource files from data/ and run this script again.
             if resource.exists:
                 logger.info('Resource [{name}] found at [{path}].'.format(name=resource.name, path=resource.path))
             else:
