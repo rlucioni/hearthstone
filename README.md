@@ -6,7 +6,7 @@ Python 3 tools for studying Hearthstone cards. Data is provided by a [third-part
 
 Create a `settings.yml` file at the root of the repo and put your Mashape application key in it. See `settings.yml.example` for an example of what this file should look like. See the [Mashape docs](http://docs.mashape.com/api-keys) for instructions on getting API keys.
 
-Create a Python 3 virtualenv. If you're using virtualenvwrapper, you can do this with:
+Create a Python 3 virtualenv. If you're using [virtualenvwrapper](https://virtualenvwrapper.readthedocs.io), you can do this with:
 
 ```
 $ mkvirtualenv hearthstone --python=$(which python3)
